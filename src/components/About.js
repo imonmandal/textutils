@@ -1,7 +1,7 @@
 import React from "react";
 import "./About.css";
 
-export default function About() {
+export default function About(props) {
   return (
     <>
       <div className="about-section">
@@ -24,7 +24,18 @@ export default function About() {
               alt="Jane"
               style={{ width: "100%" }}
             />
-            <div className="container">
+            <div
+              className="container"
+              style={
+                props.darkMode
+                  ? {
+                      backgroundColor: "#073961",
+                    }
+                  : {
+                      backgroundColor: "white",
+                    }
+              }
+            >
               <h2>Jane Doe</h2>
               <p className="title">CEO & Founder</p>
               <p>Some text that describes me lorem ipsum ipsum lorem.</p>
@@ -43,7 +54,18 @@ export default function About() {
               alt="Mike"
               style={{ width: "100%" }}
             />
-            <div className="container">
+            <div
+              className="container"
+              style={
+                props.darkMode
+                  ? {
+                      backgroundColor: "#073961",
+                    }
+                  : {
+                      backgroundColor: "white",
+                    }
+              }
+            >
               <h2>Mike Ross</h2>
               <p className="title">Art Director</p>
               <p>Some text that describes me lorem ipsum ipsum lorem.</p>
@@ -62,7 +84,18 @@ export default function About() {
               alt="John"
               style={{ width: "100%" }}
             />
-            <div className="container">
+            <div
+              className="container"
+              style={
+                props.darkMode
+                  ? {
+                      backgroundColor: "#073961",
+                    }
+                  : {
+                      backgroundColor: "white",
+                    }
+              }
+            >
               <h2>John Doe</h2>
               <p className="title">Designer</p>
               <p>Some text that describes me lorem ipsum ipsum lorem.</p>

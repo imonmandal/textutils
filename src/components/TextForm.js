@@ -4,9 +4,20 @@ export default function TextForm(props) {
   const [text, setText] = useState("Enter text here");
   const onUpClickHandler = () => {
     setText(text.toUpperCase());
+    props.showAlert("Converted to uppercase", "success");
   };
   const onChangeHandler = (event) => {
     setText(event.target.value);
+  };
+  const wordCount = (txt) => {
+    txt = txt.split(" ");
+    let c = 0;
+    for (let i = 0; i < txt.length; i++) {
+      if (txt[i] !== "") {
+        c++;
+      }
+    }
+    return c;
   };
   return (
     <>
@@ -44,7 +55,10 @@ export default function TextForm(props) {
         </button>
         <button
           className="btn btn-primary mx-1 my-3"
-          onClick={() => setText(text.toLowerCase())}
+          onClick={() => {
+            setText(text.toLowerCase());
+            props.showAlert("Converted to lowercase", "success");
+          }}
         >
           Convert to LowerCase
         </button>
@@ -52,9 +66,9 @@ export default function TextForm(props) {
       <div className="container">
         <h2>Your text summary</h2>
         <p className="my-0">
-          {text.split(" ").length} words and {text.length} characters
+          {wordCount(text)} words and {text.length} characters
         </p>
-        <p className="my-0">{0.008 * text.split(" ").length} minutes to read</p>
+        <p className="my-0">{0.008 * wordCount(text)} minutes to read</p>
       </div>
     </>
   );
